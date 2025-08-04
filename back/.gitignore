@@ -1,0 +1,50 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.log
+
+# Go build cache
+*.log
+*.tmp
+*.prof
+
+# Output from `go build`
+/bin/
+/dist/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependency directories 
+vendor/
+
+# Generated files
+mocks/
+coverage.*
+*.coverprofile
+
+# sqlc
+internal/db/generated/
+
+# dotenv config
+.env
+.env.*
+
+# Migration binaries 
+migrate
+
+# Test cache
+**/__test__/
+*.test
+
+# OS junk
+.DS_Store
+Thumbs.db
