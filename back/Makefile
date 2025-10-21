@@ -2,7 +2,7 @@
 	run migrate sqlc mocks
 
 run:
-	\tgo run cmd ./cmd/back/main.go
+	\tgo run ./cmd/back/main.go
 
 migrate:
 	\tmigrate -path internal/db/migrations -database $$POSTGRES_DSN up
