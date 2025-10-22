@@ -1,0 +1,96 @@
+basePath: /
+definitions:
+  dto.UserRequest:
+    properties:
+      email:
+        example: ronin@example.com
+        type: string
+      name:
+        example: Ronin
+        type: string
+    required:
+    - email
+    - name
+    type: object
+  dto.UserResponse:
+    properties:
+      created_at:
+        example: "2025-10-21T12:00:00Z"
+        type: string
+      email:
+        example: ronin@example.com
+        type: string
+      id:
+        example: r9n-123abc
+        type: string
+      name:
+        example: Ronin
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: API for creating and retrieving users
+  title: User API
+  version: "1.0"
+paths:
+  /users:
+    post:
+      consumes:
+      - application/json
+      description: Create a new user with name and email
+      parameters:
+      - description: User info
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/dto.UserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Create a new user
+      tags:
+      - users
+  /users/{id}:
+    get:
+      description: Get user info by ID
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.UserResponse'
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get a user by ID
+      tags:
+      - users
+swagger: "2.0"

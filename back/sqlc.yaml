@@ -1,9 +1,9 @@
 version: "2"
 sql:
   - engine: "postgresql"
-    schema: "internal/db/migrations"
-    queries: "internal/db/queries"
+    schema: "internal/platform/db/migrations"
+    queries: "internal/platform/db/queries"
     gen:
       go:
-        package: "db"
-        out: "internal/db/generated"
+        package: "generated"
+        out: "internal/platform/db/generated"

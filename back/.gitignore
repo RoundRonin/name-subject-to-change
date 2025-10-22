@@ -48,3 +48,7 @@ migrate
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Air build
+*/tmp/**
+tmp/
